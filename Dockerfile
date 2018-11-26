@@ -79,4 +79,10 @@ RUN apt-get update && \
 RUN pip install sslyze==1.3.4
 ENV SSLYZE_PATH /usr/local/bin/sslyze
 
+# garmr
+WORKDIR /opt
+RUN git clone https://github.com/freddyb/Garmr.git && \
+    cd Garmr && \
+    python setup.py install
+
 ENTRYPOINT [ "/usr/local/bin/gauntlt" ]
